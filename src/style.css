@@ -104,3 +104,19 @@ button:hover {
     color: #666;
     font-size: 14px;
 }
+
+/* Mensaje de error de validación (antes se mostraba con alert()). */
+.error-message {
+    color: #f44336;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 0 10px;
+    min-height: 18px;
+}
+
+/* Mensaje de lista vacía (antes iba con estilos inline dentro del JS). */
+.empty-message {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+}
