@@ -57,6 +57,10 @@ src/
     └── TodoController.js     Orquesta eventos ↔ servicio ↔ vistas
 ```
 
+Las pruebas unitarias de reglas de negocio están en
+`src/services/TaskService.test.js`; usan `InMemoryTaskRepository`, por lo que
+no necesitan navegador ni modifican el `localStorage` real.
+
 Cada archivo tiene **una sola razón para cambiar**.
 
 ---
@@ -122,10 +126,11 @@ nuevo repositorio y cambiar **una línea** en el bootstrap.
 
 ## 5. Verificación
 
-- `npm run build` compila sin errores (16 módulos).
-- Smoke test de la lógica de negocio: **9/9** casos en verde (agregar, validar,
-  completar, filtrar, estadísticas, eliminar, persistir vía repositorio y
-  filtro inválido con *fallback* seguro).
+- `npm run build` compila la aplicación para producción.
+- `npm test` ejecuta **9 pruebas unitarias** de `TaskService`: agregar,
+  validar, asignar ids, completar, ignorar ids inexistentes, eliminar, filtrar,
+  aplicar el *fallback* seguro y calcular estadísticas. Al usar el repositorio
+  en memoria también verifica que la lógica no depende de `localStorage`.
 
 ---
 
